@@ -8,14 +8,14 @@ const Hero = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <div name="home" className="relative w-full h-screen bg-black">
+    <div name="home" className="relative w-full min-h-screen bg-black pt-20 sm:pt-0">
       {/* Metalik Arka Plan Efekti */}
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-900 to-black opacity-80"></div>
       <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] pointer-events-none"></div>
 
       <motion.div 
         style={{ opacity }}
-        className="relative max-w-[1200px] mx-auto flex flex-col-reverse lg:flex-row items-center justify-center h-full px-4 gap-12"
+        className="relative max-w-[1200px] mx-auto flex flex-col-reverse lg:flex-row items-center justify-center min-h-screen px-4 gap-8 sm:gap-12 py-8 sm:py-0"
       >
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
@@ -27,7 +27,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-emerald-400 font-bold text-xl mb-4"
+            className="text-emerald-400 font-bold text-lg sm:text-xl mb-3 sm:mb-4"
           >
             Merhaba, ben
           </motion.p>
@@ -35,7 +35,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-5xl sm:text-7xl font-bold mb-4"
+            className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-3 sm:mb-4"
           >
             <span className="animate-gradient bg-gradient-to-r from-emerald-400 via-purple-500 to-pink-500 bg-clip-text text-transparent bg-300% drop-shadow-[0_0_15px_rgba(52,211,153,0.3)]">
               Berkant Çakıltaş
@@ -45,7 +45,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-3xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 to-zinc-500 mb-6"
+            className="text-2xl sm:text-3xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 to-zinc-500 mb-4 sm:mb-6"
           >
             Frontend Developer
           </motion.h2>
@@ -53,7 +53,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="text-zinc-400 py-4 max-w-[700px] text-lg mx-auto lg:mx-0"
+            className="text-zinc-400 py-2 sm:py-4 max-w-[700px] text-base sm:text-lg mx-auto lg:mx-0"
           >
             Web teknolojileri konusunda tutkulu ve yenilikçi çözümler üreten bir yazılım geliştiricisiyim.
           </motion.p>
@@ -63,7 +63,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.7 }}
           >
             <Link to="work" smooth={true} duration={500}>
-              <button className="text-zinc-200 group border border-emerald-400/50 px-8 py-4 my-4 flex items-center mx-auto lg:mx-0 hover:bg-emerald-400/10 duration-300 rounded-sm backdrop-blur-sm hover:shadow-[0_0_20px_rgba(52,211,153,0.3)]">
+              <button className="text-zinc-200 group border border-emerald-400/50 px-6 sm:px-8 py-3 sm:py-4 my-2 sm:my-4 flex items-center mx-auto lg:mx-0 hover:bg-emerald-400/10 duration-300 rounded-sm backdrop-blur-sm hover:shadow-[0_0_20px_rgba(52,211,153,0.3)]">
                 Projelerim
                 <span className="group-hover:translate-x-2 duration-300">
                   <HiArrowNarrowRight className="ml-3" />
@@ -77,7 +77,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-[280px] lg:w-[400px] relative group"
+          className="w-[220px] sm:w-[280px] lg:w-[400px] relative group"
         >
           <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-purple-500 rounded-lg blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-300"></div>
           <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
@@ -92,7 +92,7 @@ const Hero = () => {
       </motion.div>
 
       {/* Scroll Indicators */}
-      <Link to="about" smooth={true} duration={500} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer">
+      <Link to="about" smooth={true} duration={500} className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer hidden sm:block">
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
