@@ -4,7 +4,7 @@ const Contact = () => {
       <form action="https://getform.io/f/a1c5d5e2-3f3f-4c2a-9c0f-5c5c5c5c5c5c" method="POST" className="flex flex-col max-w-[600px] w-full">
         <div className="pb-8 text-center">
           <p className="text-4xl font-bold inline border-b-4 border-[#00df9a] text-gray-300">İletişim</p>
-          <p className="text-gray-300 py-4">Aşağıdaki formu doldurarak veya berkantcoklutas@gmail.com adresinden bana ulaşabilirsiniz.</p>
+          <p className="text-gray-300 py-4">Aşağıdaki formu doldurarak veya berkantcakiltas@gmail.com adresinden bana ulaşabilirsiniz.</p>
         </div>
         <input className="bg-[#ccd6f6] p-2 rounded-md" type="text" placeholder="İsim" name="name" required />
         <input className="my-4 p-2 bg-[#ccd6f6] rounded-md" type="email" placeholder="Email" name="email" required />
