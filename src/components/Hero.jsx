@@ -4,56 +4,55 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <div name='home' className='w-full h-screen bg-[#0a192f]'>
-      <div className='max-w-[1000px] mx-auto px-8 flex flex-col md:flex-row justify-center h-full'>
-        {/* Text Content */}
+    <div name="home" className="w-full h-screen">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-[1000px] mx-auto px-8 flex flex-col-reverse md:flex-row items-center justify-center h-full"
+      >
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className='flex flex-col justify-center'
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex-1"
         >
-          <p className='text-[#00df9a]'>Merhaba, ben</p>
-          <h1 className='text-4xl sm:text-7xl font-bold text-[#ccd6f6]'>
+          <p className="text-[#00df9a] font-bold text-xl">Merhaba, ben</p>
+          <h1 className="text-4xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00df9a] to-[#38ef7d]">
             Berkant Çakıltaş
           </h1>
-          <h2 className='text-4xl sm:text-7xl font-bold text-[#8892b0]'>
+          <h2 className="text-3xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-400">
             Frontend Developer
           </h2>
-          <p className='text-[#8892b0] py-4 max-w-[700px]'>
-            Modern ve kullanıcı dostu web uygulamaları geliştiriyorum.
+          <p className="text-gray-300 py-4 max-w-[700px] text-lg">
+            Web teknolojileri konusunda tutkulu ve yenilikçi çözümler üreten bir yazılım geliştiricisiyim.
           </p>
           <div>
             <Link to="work" smooth={true} duration={500}>
-              <button className='text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-[#00df9a] hover:border-[#00df9a] duration-300'>
+              <button className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-[#00df9a] hover:border-[#00df9a] duration-300 rounded-lg">
                 Projelerim
-                <span className='group-hover:rotate-90 duration-300'>
-                  <HiArrowNarrowRight className='ml-3' />
+                <span className="group-hover:rotate-90 duration-300">
+                  <HiArrowNarrowRight className="ml-3" />
                 </span>
               </button>
             </Link>
           </div>
         </motion.div>
-
-        {/* Profile Image */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className='md:ml-8 mt-8 md:mt-0 flex justify-center items-center'
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex-1 mb-8 md:mb-0 md:ml-8"
         >
-          <div className='relative group'>
-            <div className='absolute -inset-1 bg-gradient-to-r from-[#00df9a] to-[#88efbb] rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200'></div>
-            <div className='relative'>
-              <img 
-                src='/profile.jpg' 
-                alt='Profile' 
-                className='rounded-full w-64 h-64 object-cover border-4 border-[#00df9a] shadow-lg shadow-[#00df9a]/50 hover:shadow-[#00df9a]/75 transition duration-300'
-              />
-            </div>
+          <div className="w-[250px] h-[250px] mx-auto rounded-full overflow-hidden border-4 border-[#00df9a] shadow-lg shadow-[#00df9a]/50">
+            <img
+              src="/profile.jpg"
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 };
