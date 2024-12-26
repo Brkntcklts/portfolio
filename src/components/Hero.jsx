@@ -37,7 +37,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-3 sm:mb-4"
           >
-            <span className="animate-gradient bg-gradient-to-r from-emerald-400 via-purple-500 to-pink-500 bg-clip-text text-transparent bg-300% drop-shadow-[0_0_15px_rgba(52,211,153,0.3)]">
+            <span className="animate-pulse text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
               Berkant Çakıltaş
             </span>
           </motion.h1>
@@ -77,7 +77,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-[220px] sm:w-[280px] lg:w-[400px] relative group"
+          className="w-[200px] sm:w-[240px] lg:w-[320px] relative group"
         >
           <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-purple-500 rounded-lg blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-300"></div>
           <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
