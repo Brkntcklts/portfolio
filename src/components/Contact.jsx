@@ -1,136 +1,20 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { HiMail, HiX } from 'react-icons/hi'
-
 const Contact = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Form gönderme işlemi burada yapılacak
-    console.log(formData)
-    setIsOpen(false)
-    setFormData({ name: '', email: '', message: '' })
-  }
-
   return (
-    <>
-      {/* Sabit İletişim Butonu */}
-      <motion.button
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-8 right-8 w-16 h-16 rounded-full bg-gradient-to-r from-gradient-start to-gradient-end text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow z-50"
-      >
-        <HiMail className="w-8 h-8" />
-      </motion.button>
+    <div name="contact" className="w-full min-h-screen flex items-center justify-center p-4">
+      <form action="https://getform.io/f/a1c5d5e2-3f3f-4c2a-9c0f-5c5c5c5c5c5c" method="POST" className="flex flex-col max-w-[600px] w-full">
+        <div className="pb-8 text-center">
+          <p className="text-4xl font-bold inline border-b-4 border-[#00df9a] text-gray-300">İletişim</p>
+          <p className="text-gray-300 py-4">Aşağıdaki formu doldurarak veya berkantcoklutas@gmail.com adresinden bana ulaşabilirsiniz.</p>
+        </div>
+        <input className="bg-[#ccd6f6] p-2 rounded-md" type="text" placeholder="İsim" name="name" required />
+        <input className="my-4 p-2 bg-[#ccd6f6] rounded-md" type="email" placeholder="Email" name="email" required />
+        <textarea className="bg-[#ccd6f6] p-2 rounded-md" name="message" rows="10" placeholder="Mesajınız" required></textarea>
+        <button className="text-white border-2 hover:bg-[#00df9a] hover:border-[#00df9a] px-4 py-3 my-8 mx-auto flex items-center rounded-md duration-300">
+          Gönder
+        </button>
+      </form>
+    </div>
+  );
+};
 
-      {/* Açılır Form */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-black z-50"
-            />
-
-            {/* Form Container */}
-            <motion.div
-              initial={{ opacity: 0, y: 100, scale: 0.3 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 100, scale: 0.3 }}
-              className="fixed bottom-8 right-8 w-full max-w-md bg-dark rounded-xl shadow-2xl z-50 overflow-hidden"
-            >
-              <div className="p-6">
-                <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-xl font-bold text-light">İletişime Geç</h2>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="text-muted hover:text-accent transition-colors"
-                  >
-                    <HiX className="w-6 h-6" />
-                  </button>
-                </div>
-
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-muted mb-1">
-                      İsim
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 rounded-lg bg-primary text-light placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-muted mb-1">
-                      E-posta
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-2 rounded-lg bg-primary text-light placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-muted mb-1">
-                      Mesaj
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows="4"
-                      className="w-full px-4 py-2 rounded-lg bg-primary text-light placeholder-muted focus:outline-none focus:ring-2 focus:ring-accent resize-none"
-                      required
-                    />
-                  </div>
-
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    type="submit"
-                    className="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-gradient-start to-gradient-end text-white font-medium hover:opacity-90 transition-opacity"
-                  >
-                    Gönder
-                  </motion.button>
-                </form>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </>
-  )
-}
-
-export default Contact 
+export default Contact; 
